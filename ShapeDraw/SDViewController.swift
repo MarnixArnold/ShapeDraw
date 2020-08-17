@@ -15,28 +15,19 @@ class SDViewController: UIViewController {
     
     @IBOutlet weak var newShapeButton: UIButton!
     
-    var shapes: [SDShape] = []
+    var shapeViews: [SDShapeView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         shapeTableView.dataSource = self
         
-        // Do any additional setup after loading the view.
-        shapes = SDShapeFactory.fillDebugShapes()
-        drawDebugShapes()
-    }
-
-    func drawDebugShapes() {
-        
         canvasView.backgroundColor = UIColor.lightGray
-        canvasView.subviews.forEach { (subview) in
-            subview.removeFromSuperview()
-        }
-        
+
+        // Do any additional setup after loading the view.
+        let shapes = SDShapeFactory.fillDebugShapes()
         shapes.forEach { (shape) in
-            let shapeView = SDShapeView(shape: shape)
-            canvasView.addSubview(shapeView)
+            addShape(shape: shape)
         }
     }
     
@@ -74,24 +65,41 @@ class SDViewController: UIViewController {
     }
     
     private func addShape(shape: SDShape) {
-        shapes.append(shape)
-        drawDebugShapes()
+        let shapeView = SDShapeView(shape: shape)
+        shapeViews.append(shapeView)
+        canvasView.addSubview(shapeView)
         shapeTableView.reloadData()
     }
-    
 }
 
 extension SDViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shapes.count
+        return shapeViews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-        cell.textLabel?.text = shapes[indexPath.row].name
+        cell.textLabel?.text = shapeViews[indexPath.row].shape.name
+        
+        // Add a switch to control the visibility of the shape
+        let switchView = UISwitch(frame: .zero)
+        switchView.setOn(true, animated: false)
+        switchView.tag = indexPath.row
+        switchView.addTarget(self, action: #selector(self.didChangeSwitch(_:)), for: .valueChanged)
+        cell.accessoryView = switchView
+        
         return cell
     }
     
+    @objc
+    private func didChangeSwitch(_ sender : UISwitch!){
+        let row = sender.tag
+        guard row < shapeViews.count else {
+            return
+        }
+        let view = shapeViews[row]
+        view.isHidden = !sender.isOn
+    }
 }
 
 
