@@ -21,6 +21,7 @@ class SDViewController: UIViewController {
         super.viewDidLoad()
         
         shapeTableView.dataSource = self
+        shapeTableView.delegate = self
         
         canvasView.backgroundColor = UIColor.lightGray
 
@@ -32,6 +33,12 @@ class SDViewController: UIViewController {
     }
     
     @IBAction func didTapNewShapeButton(_ sender: Any) {
+        // If any row is selected (editing), end that now
+        if let selectedRow = shapeTableView.indexPathForSelectedRow {
+            shapeTableView.deselectRow(at: selectedRow, animated: false)
+            tableView(shapeTableView, didDeselectRowAt: selectedRow)
+        }
+        
         let alertController = UIAlertController(title: nil, message: "New Shape", preferredStyle: .actionSheet)
         
         let supportedShapes = SDShapeFactory.supportedShapeTypes()
@@ -102,4 +109,14 @@ extension SDViewController: UITableViewDataSource {
     }
 }
 
-
+extension SDViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let shapeView = shapeViews[indexPath.row]
+        shapeView.isEditing = true
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let shapeView = shapeViews[indexPath.row]
+        shapeView.isEditing = false
+    }
+}
