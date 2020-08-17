@@ -15,9 +15,9 @@ extension SDShapeView {
         // Center anchor for translation
         let scaleAnchorView = createEditingAnchor()
         addSubview(scaleAnchorView)
-        let centerX = shape.path.bounds.width
-        let centerY = shape.path.bounds.height
-        scaleAnchorView.center = shape.path.bounds.origin + CGPoint(x: centerX, y: centerY)
+        let offsetX = shape.path.bounds.width - 12
+        let offsetY = shape.path.bounds.height - 12
+        scaleAnchorView.center = shape.path.bounds.origin + CGPoint(x: offsetX, y: offsetY)
         scaleAnchorView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.scaleXYAnchorPan(_:))))
         return scaleAnchorView
     }

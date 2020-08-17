@@ -23,6 +23,7 @@
 		60F5787D24EAD4CA00289B9C /* SDShapeView+Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5787C24EAD4CA00289B9C /* SDShapeView+Translate.swift */; };
 		60F5787F24EAD6EF00289B9C /* SDShapeView+Rotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5787E24EAD6EF00289B9C /* SDShapeView+Rotate.swift */; };
 		60F5788824EAE31400289B9C /* SDShapeView+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5788724EAE31400289B9C /* SDShapeView+Scale.swift */; };
+		60F5788A24EAE96D00289B9C /* SDRoundedRectangleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5788924EAE96D00289B9C /* SDRoundedRectangleShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		60F5787C24EAD4CA00289B9C /* SDShapeView+Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SDShapeView+Translate.swift"; sourceTree = "<group>"; };
 		60F5787E24EAD6EF00289B9C /* SDShapeView+Rotate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SDShapeView+Rotate.swift"; sourceTree = "<group>"; };
 		60F5788724EAE31400289B9C /* SDShapeView+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SDShapeView+Scale.swift"; sourceTree = "<group>"; };
+		60F5788924EAE96D00289B9C /* SDRoundedRectangleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDRoundedRectangleShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				60F5786E24EA95AB00289B9C /* SDShape.swift */,
 				60F5786F24EA95AB00289B9C /* SDRectangleShape.swift */,
 				60F5787624EA9C8A00289B9C /* SDOvalShape.swift */,
+				60F5788924EAE96D00289B9C /* SDRoundedRectangleShape.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				60F5787724EA9C8A00289B9C /* SDOvalShape.swift in Sources */,
 				60F5787924EAA7FF00289B9C /* SDShapeFactory.swift in Sources */,
 				60F5787B24EAD49B00289B9C /* CGPoint-extensions.swift in Sources */,
+				60F5788A24EAE96D00289B9C /* SDRoundedRectangleShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

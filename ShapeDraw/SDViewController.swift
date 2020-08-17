@@ -65,7 +65,6 @@ class SDViewController: UIViewController {
 
         if let popoverController = alertController.popoverPresentationController {
             popoverController.sourceView = self.view
-            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
             popoverController.permittedArrowDirections = []
         }
         self.present(alertController, animated: true, completion: nil)
@@ -118,5 +117,14 @@ extension SDViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let shapeView = shapeViews[indexPath.row]
         shapeView.isEditing = false
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let shapeView = shapeViews[indexPath.row]
+            shapeView.removeFromSuperview()
+            shapeViews.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }

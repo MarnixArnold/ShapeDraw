@@ -11,6 +11,7 @@ import UIKit
 enum SDShapeType: String {
     case rectangle = "Rectangle"
     case oval = "Oval"
+    case roundedRectangle = "Rounded Rect"
 }
 
 // TODO: This is a static class for now. Better to use a protocol and dependency injection
@@ -29,7 +30,7 @@ class SDShapeFactory {
     
 
     class func supportedShapeTypes() -> [SDShapeType] {
-        return [.rectangle, .oval]
+        return [.rectangle, .oval, .roundedRectangle]
     }
     
     private static var createCounter = 0
@@ -43,6 +44,8 @@ class SDShapeFactory {
             newShape = SDRectangleShape(rect: rect)
         case .oval:
             newShape = SDOvalShape(rect: rect)
+        case .roundedRectangle:
+            newShape = SDRoundedRectangleShape(rect: rect)
         }
 
         // TODO: Temporary name, allow the user to set this
