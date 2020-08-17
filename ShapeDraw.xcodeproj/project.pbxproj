@@ -21,6 +21,7 @@
 		60F5787924EAA7FF00289B9C /* SDShapeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5787824EAA7FF00289B9C /* SDShapeFactory.swift */; };
 		60F5787B24EAD49B00289B9C /* CGPoint-extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5787A24EAD49B00289B9C /* CGPoint-extensions.swift */; };
 		60F5787D24EAD4CA00289B9C /* SDShapeView+Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5787C24EAD4CA00289B9C /* SDShapeView+Translate.swift */; };
+		60F5787F24EAD6EF00289B9C /* SDShapeView+Rotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5787E24EAD6EF00289B9C /* SDShapeView+Rotate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		60F5787824EAA7FF00289B9C /* SDShapeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDShapeFactory.swift; sourceTree = "<group>"; };
 		60F5787A24EAD49B00289B9C /* CGPoint-extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint-extensions.swift"; sourceTree = "<group>"; };
 		60F5787C24EAD4CA00289B9C /* SDShapeView+Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SDShapeView+Translate.swift"; sourceTree = "<group>"; };
+		60F5787E24EAD6EF00289B9C /* SDShapeView+Rotate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SDShapeView+Rotate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				60F5787124EA95AB00289B9C /* SDShapeView.swift */,
 				60F5787C24EAD4CA00289B9C /* SDShapeView+Translate.swift */,
+				60F5787E24EAD6EF00289B9C /* SDShapeView+Rotate.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				60F5787424EA95AC00289B9C /* SDShapeView.swift in Sources */,
 				60F5787224EA95AC00289B9C /* SDShape.swift in Sources */,
 				609A2CAE24EA952400633570 /* SDViewController.swift in Sources */,
+				60F5787F24EAD6EF00289B9C /* SDShapeView+Rotate.swift in Sources */,
 				60F5787D24EAD4CA00289B9C /* SDShapeView+Translate.swift in Sources */,
 				609A2CAA24EA952400633570 /* AppDelegate.swift in Sources */,
 				609A2CAC24EA952400633570 /* SceneDelegate.swift in Sources */,

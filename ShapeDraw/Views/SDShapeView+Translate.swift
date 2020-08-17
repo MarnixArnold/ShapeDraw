@@ -39,8 +39,8 @@ extension SDShapeView {
                        width: shape.path.bounds.maxX,
                        height: shape.path.bounds.maxY)
         
-        // Move the anchor with the shape
-        if let anchorView = panGestureRecognizer.view {
+        // Move all anchors with the shape
+        editingAnchors.forEach { (anchorView) in
             anchorView.center = anchorView.center + translation
         }
         panGestureRecognizer.setTranslation(CGPoint(x: 0, y: 0), in: self)

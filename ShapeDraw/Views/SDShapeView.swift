@@ -26,7 +26,7 @@ class SDShapeView: UIView {
         }
     }
     
-    private var editingAnchors: [UIView] = []
+    var editingAnchors: [UIView] = []
     
     init(shape: SDShape) {
         let frame = CGRect(x: 0,
@@ -62,9 +62,8 @@ class SDShapeView: UIView {
 // Editing
 extension SDShapeView {
     private func setupEditingAnchors() {
-        let centerAnchor = createTranslationAnchor()
-        editingAnchors.append(centerAnchor)
-
+        editingAnchors.append(createTranslationAnchor())
+        editingAnchors.append(createRotationAnchor())
         showEditingAnchors(enabled: false)
     }
     
@@ -82,5 +81,10 @@ extension SDShapeView {
         return view
     }
     
+    func centerOfShape() -> CGPoint {
+        let centerX = shape.path.bounds.width * 0.5
+        let centerY = shape.path.bounds.height * 0.5
+        return shape.path.bounds.origin + CGPoint(x: centerX, y: centerY)
+    }
 }
 
