@@ -19,28 +19,59 @@
                                 <rect key="frame" x="0.0" y="0.0" width="954" height="814"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udX-mL-7xi" userLabel="buttonContainerView">
+                                <rect key="frame" x="954" y="13" width="240" height="46"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tW-E5-kVn">
+                                        <rect key="frame" x="104.5" y="8" width="31" height="30"/>
+                                        <state key="normal" title="New"/>
+                                        <connections>
+                                            <action selector="didTapNewShapeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oGx-cp-q2r"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="8tW-E5-kVn" firstAttribute="centerY" secondItem="udX-mL-7xi" secondAttribute="centerY" id="gQX-mz-SAs"/>
+                                    <constraint firstItem="8tW-E5-kVn" firstAttribute="centerX" secondItem="udX-mL-7xi" secondAttribute="centerX" id="gYp-SG-zoH"/>
+                                    <constraint firstItem="8tW-E5-kVn" firstAttribute="top" secondItem="udX-mL-7xi" secondAttribute="top" constant="8" id="iGl-GI-P85"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Wh-3n-bA3" userLabel="shapeTableView">
-                                <rect key="frame" x="954" y="0.0" width="240" height="814"/>
+                                <rect key="frame" x="954" y="59" width="240" height="515"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="29V-gm-dlh"/>
                                 </constraints>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="esP-DD-kdz">
+                                <rect key="frame" x="954" y="574" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="RwP-6a-Usz"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="udX-mL-7xi" firstAttribute="width" secondItem="6Wh-3n-bA3" secondAttribute="width" id="BOc-ap-THl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FT4-dv-dUP" secondAttribute="bottom" id="Bz9-qP-Cel"/>
                             <constraint firstItem="FT4-dv-dUP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="H4i-PN-Y2S"/>
-                            <constraint firstItem="6Wh-3n-bA3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SO7-XG-sSo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="esP-DD-kdz" secondAttribute="bottom" id="Lsm-R1-K9b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="udX-mL-7xi" secondAttribute="trailing" id="N2C-bU-jjc"/>
+                            <constraint firstItem="6Wh-3n-bA3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="59" id="NlD-A2-Bnp"/>
                             <constraint firstItem="FT4-dv-dUP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Vse-CZ-ZZB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Wh-3n-bA3" secondAttribute="trailing" id="W4J-K6-l3k"/>
+                            <constraint firstItem="esP-DD-kdz" firstAttribute="top" secondItem="6Wh-3n-bA3" secondAttribute="bottom" id="X6V-Y0-9mB"/>
+                            <constraint firstItem="6Wh-3n-bA3" firstAttribute="top" secondItem="udX-mL-7xi" secondAttribute="bottom" id="ahS-Te-PkA"/>
                             <constraint firstItem="6Wh-3n-bA3" firstAttribute="leading" secondItem="FT4-dv-dUP" secondAttribute="trailing" id="cMO-RE-s76"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6Wh-3n-bA3" secondAttribute="bottom" id="ncr-Cu-RNU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="esP-DD-kdz" secondAttribute="trailing" id="pys-tz-zcn"/>
+                            <constraint firstItem="esP-DD-kdz" firstAttribute="width" secondItem="6Wh-3n-bA3" secondAttribute="width" id="tZ3-gq-Hdq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="canvasView" destination="FT4-dv-dUP" id="syi-j9-yY8"/>
+                        <outlet property="newShapeButton" destination="8tW-E5-kVn" id="f3F-Kd-vDM"/>
                         <outlet property="shapeTableView" destination="6Wh-3n-bA3" id="2nd-oJ-bjq"/>
                     </connections>
                 </viewController>
