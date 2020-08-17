@@ -14,9 +14,12 @@ enum SDShapeType: String {
     case roundedRectangle = "Rounded Rect"
 }
 
+// Abstract factory, so the views and view controller only need to know about the generic
+// SDShape class, not its subclasses
 // TODO: This is a static class for now. Better to use a protocol and dependency injection
 class SDShapeFactory {
     
+    #if DEBUG
     class func fillDebugShapes() -> [SDShape] {
         let debugShape1 = SDRectangleShape(rect: CGRect(x: 100, y: 100, width: 300, height: 300))
         debugShape1.fillColor = UIColor.orange
@@ -30,7 +33,7 @@ class SDShapeFactory {
 
         return [debugShape1, debugShape2]
     }
-    
+    #endif
 
     class func supportedShapeTypes() -> [SDShapeType] {
         return [.rectangle, .oval, .roundedRectangle]

@@ -15,7 +15,7 @@ class SDViewController: UIViewController {
     
     @IBOutlet weak var newShapeButton: UIButton!
     
-    var shapeViews: [SDShapeView] = []
+    private var shapeViews: [SDShapeView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +25,12 @@ class SDViewController: UIViewController {
         
         canvasView.backgroundColor = UIColor.lightGray
 
-        // Do any additional setup after loading the view.
+        #if DEBUG
         let shapes = SDShapeFactory.fillDebugShapes()
         shapes.forEach { (shape) in
             addShape(shape: shape)
         }
+        #endif
     }
     
     @IBAction func didTapNewShapeButton(_ sender: Any) {
@@ -69,8 +70,8 @@ class SDViewController: UIViewController {
     }
     
     // Using this weak ref to enable/disable the submit button based on the user input
-    weak var submitNameAction: UIAlertAction?
-    weak var nameAlertController: UIAlertController?
+    weak private var submitNameAction: UIAlertAction?
+    weak private var nameAlertController: UIAlertController?
 
     private func askForShapeName(newShape: SDShape) {
         // Ask the user to select a name, check against the current names to see if it is unique
