@@ -21,10 +21,13 @@ class SDShapeFactory {
         let debugShape1 = SDRectangleShape(rect: CGRect(x: 100, y: 100, width: 300, height: 300))
         debugShape1.fillColor = UIColor.orange
         debugShape1.name = "Rect 1"
+        createCounter += 1
+        
         let debugShape2 = SDOvalShape(rect: CGRect(x: 80, y: 70, width: 250, height: 500))
         debugShape2.fillColor = UIColor.blue
-        debugShape2.name = "Oval 1"
-        
+        debugShape2.name = "Oval 2"
+        createCounter += 1
+
         return [debugShape1, debugShape2]
     }
     
@@ -37,7 +40,7 @@ class SDShapeFactory {
     
     class func create(as shapeType: SDShapeType, rect: CGRect) -> SDShape? {
         var newShape: SDShape?
-        createCounter += 1;
+        createCounter += 1
         
         switch shapeType {
         case .rectangle:

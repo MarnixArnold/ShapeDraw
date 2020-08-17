@@ -39,7 +39,7 @@ class SDViewController: UIViewController {
             tableView(shapeTableView, didDeselectRowAt: selectedRow)
         }
         
-        let alertController = UIAlertController(title: nil, message: "New Shape", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "New Shape", message: "Pick the type of shape that you want to create from the list below:", preferredStyle: .actionSheet)
         
         let supportedShapes = SDShapeFactory.supportedShapeTypes()
         let defaultWidth: CGFloat = 120
@@ -51,7 +51,7 @@ class SDViewController: UIViewController {
         supportedShapes.forEach { (shapeType) in
             let shapeAction = UIAlertAction(title: shapeType.rawValue, style: .default, handler: { (alert: UIAlertAction!) -> Void in
                 if let shape = SDShapeFactory.create(as: shapeType, rect: defaultRect) {
-                    self.addShape(shape: shape)
+                    self.askForShapeName(newShape: shape)
                 }
             })
             alertController.addAction(shapeAction)
@@ -68,6 +68,49 @@ class SDViewController: UIViewController {
             popoverController.permittedArrowDirections = []
         }
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // Using this weak ref to enable/disable the submit button based on the user input
+    weak var submitNameAction: UIAlertAction?
+
+    private func askForShapeName(newShape: SDShape) {
+        // Ask the user to select a name, check against the current names to see if it is unique
+        let alertController = UIAlertController(title: "Awesome!", message: "Now choose a unique name", preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.placeholder = newShape.name
+            textField.addTarget(self, action: #selector(self.nameTextChanged(_:)), for: .editingChanged)
+        }
+        let action = UIAlertAction(title: "Submit", style: .default, handler: { [weak alertController] (_) in
+            guard let textField = alertController?.textFields?[0],
+                let inputText = textField.text else { return }
+            if !inputText.isEmpty {
+                newShape.name = inputText
+            }
+            self.addShape(shape: newShape)
+        })
+        alertController.addAction(action)
+        submitNameAction = action
+        
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.permittedArrowDirections = []
+        }
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc
+    private func nameTextChanged(_ sender: UITextField) {
+        guard let inputText = sender.text else {
+            submitNameAction?.isEnabled = false
+            return
+        }
+        submitNameAction?.isEnabled = self.isUniqueName(name: inputText)
+    }
+    
+    private func isUniqueName(name: String) -> Bool {
+        shapeViews.filter { (shapeView) -> Bool in
+            return shapeView.shape.name == name
+        }.isEmpty
     }
     
     private func addShape(shape: SDShape) {
