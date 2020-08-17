@@ -44,6 +44,10 @@ extension SDShapeView {
             anchorView.center = anchorView.center + translation
         }
         panGestureRecognizer.setTranslation(CGPoint(x: 0, y: 0), in: self)
+        
+        if panGestureRecognizer.state == .ended {
+            resetEditingAnchors()
+        }
     }
 }
 

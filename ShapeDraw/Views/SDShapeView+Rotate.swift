@@ -15,7 +15,9 @@ extension SDShapeView {
         // Halfway between center and top, anchor for rotation
         let rotationAnchorView = createEditingAnchor()
         addSubview(rotationAnchorView)
-        rotationAnchorView.center = initialRotationAnchorPosition()
+        let centerX = shape.path.bounds.width * 0.5
+        let centerY = shape.path.bounds.height * 0.25
+        rotationAnchorView.center =  shape.path.bounds.origin + CGPoint(x: centerX, y: centerY)
         rotationAnchorView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.rotationAnchorPan(_:))))
         return rotationAnchorView
     }
@@ -52,19 +54,11 @@ extension SDShapeView {
         if let anchorView = panGestureRecognizer.view {
             anchorView.center = anchorView.center + translation
             if panGestureRecognizer.state == .ended {
-                // Snap to new anchor position
-                // TODO: constrain the new position instead of this workaround
-                anchorView.center = initialRotationAnchorPosition()
+                resetEditingAnchors()
             }
         }
         
         panGestureRecognizer.setTranslation(CGPoint(x: 0, y: 0), in: self)
-    }
-    
-    private func initialRotationAnchorPosition() -> CGPoint {
-        let centerX = shape.path.bounds.width * 0.5
-        let centerY = shape.path.bounds.height * 0.25
-        return shape.path.bounds.origin + CGPoint(x: centerX, y: centerY)
     }
 }
 

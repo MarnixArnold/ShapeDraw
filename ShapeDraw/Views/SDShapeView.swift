@@ -37,6 +37,7 @@ class SDShapeView: UIView {
         self.shape = shape
         self.backgroundColor = UIColor.clear
         setupEditingAnchors()
+        showEditingAnchors(enabled: false)
     }
     
     required init?(coder: NSCoder) {
@@ -64,7 +65,18 @@ extension SDShapeView {
     private func setupEditingAnchors() {
         editingAnchors.append(createTranslationAnchor())
         editingAnchors.append(createRotationAnchor())
-        showEditingAnchors(enabled: false)
+        editingAnchors.append(createScaleXYAnchor())
+    }
+    
+    func resetEditingAnchors() {
+        // TODO: this is an ugly way to clean up the editing anchors,
+        // since there are problems with the repositioning during the
+        // various transforms
+        editingAnchors.forEach {(view) in
+            view.removeFromSuperview()
+        }
+        editingAnchors = []
+        setupEditingAnchors()
     }
     
     private func showEditingAnchors(enabled: Bool) {
