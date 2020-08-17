@@ -19,6 +19,8 @@
 		60F5787424EA95AC00289B9C /* SDShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5787124EA95AB00289B9C /* SDShapeView.swift */; };
 		60F5787724EA9C8A00289B9C /* SDOvalShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5787624EA9C8A00289B9C /* SDOvalShape.swift */; };
 		60F5787924EAA7FF00289B9C /* SDShapeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5787824EAA7FF00289B9C /* SDShapeFactory.swift */; };
+		60F5787B24EAD49B00289B9C /* CGPoint-extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5787A24EAD49B00289B9C /* CGPoint-extensions.swift */; };
+		60F5787D24EAD4CA00289B9C /* SDShapeView+Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5787C24EAD4CA00289B9C /* SDShapeView+Translate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		60F5787524EA95BA00289B9C /* ShapeDraw.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShapeDraw.entitlements; sourceTree = "<group>"; };
 		60F5787624EA9C8A00289B9C /* SDOvalShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDOvalShape.swift; sourceTree = "<group>"; };
 		60F5787824EAA7FF00289B9C /* SDShapeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDShapeFactory.swift; sourceTree = "<group>"; };
+		60F5787A24EAD49B00289B9C /* CGPoint-extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint-extensions.swift"; sourceTree = "<group>"; };
+		60F5787C24EAD4CA00289B9C /* SDShapeView+Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SDShapeView+Translate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 				609A2CA924EA952400633570 /* AppDelegate.swift */,
 				609A2CAB24EA952400633570 /* SceneDelegate.swift */,
 				609A2CAD24EA952400633570 /* SDViewController.swift */,
+				60F5787A24EAD49B00289B9C /* CGPoint-extensions.swift */,
 				609A2CAF24EA952400633570 /* Main.storyboard */,
 				609A2CB224EA952500633570 /* Assets.xcassets */,
 				609A2CB424EA952500633570 /* LaunchScreen.storyboard */,
@@ -136,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				60F5787124EA95AB00289B9C /* SDShapeView.swift */,
+				60F5787C24EAD4CA00289B9C /* SDShapeView+Translate.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,10 +251,12 @@
 				60F5787424EA95AC00289B9C /* SDShapeView.swift in Sources */,
 				60F5787224EA95AC00289B9C /* SDShape.swift in Sources */,
 				609A2CAE24EA952400633570 /* SDViewController.swift in Sources */,
+				60F5787D24EAD4CA00289B9C /* SDShapeView+Translate.swift in Sources */,
 				609A2CAA24EA952400633570 /* AppDelegate.swift in Sources */,
 				609A2CAC24EA952400633570 /* SceneDelegate.swift in Sources */,
 				60F5787724EA9C8A00289B9C /* SDOvalShape.swift in Sources */,
 				60F5787924EAA7FF00289B9C /* SDShapeFactory.swift in Sources */,
+				60F5787B24EAD49B00289B9C /* CGPoint-extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

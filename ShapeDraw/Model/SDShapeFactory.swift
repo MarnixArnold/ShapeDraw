@@ -13,6 +13,7 @@ enum SDShapeType: String {
     case oval = "Oval"
 }
 
+// TODO: This is a static class for now. Better to use a protocol and dependency injection
 class SDShapeFactory {
     
     class func fillDebugShapes() -> [SDShape] {
