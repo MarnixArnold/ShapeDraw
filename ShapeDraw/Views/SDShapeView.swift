@@ -69,7 +69,7 @@ extension SDShapeView {
     }
     
     func resetEditingAnchors() {
-        // TODO: this is an ugly way to clean up the editing anchors,
+        // FIXME: this is an ugly way to clean up the editing anchors,
         // since there are problems with the repositioning during the
         // various transforms
         editingAnchors.forEach {(view) in

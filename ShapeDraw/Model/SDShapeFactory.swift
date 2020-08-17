@@ -12,6 +12,7 @@ enum SDShapeType: String {
     case rectangle = "Rectangle"
     case oval = "Oval"
     case roundedRectangle = "Rounded Rect"
+    case star = "Star"
 }
 
 // Abstract factory, so the views and view controller only need to know about the generic
@@ -36,7 +37,7 @@ class SDShapeFactory {
     #endif
 
     class func supportedShapeTypes() -> [SDShapeType] {
-        return [.rectangle, .oval, .roundedRectangle]
+        return [.rectangle, .oval, .roundedRectangle, .star]
     }
     
     private static var createCounter = 0
@@ -52,9 +53,11 @@ class SDShapeFactory {
             newShape = SDOvalShape(rect: rect)
         case .roundedRectangle:
             newShape = SDRoundedRectangleShape(rect: rect)
+        case .star:
+            newShape = SDStarShape(rect: rect)
         }
 
-        // TODO: Temporary name, allow the user to set this
+        // Temporary name, fallback if the user does not enter a name
         newShape?.name = "\(shapeType.rawValue)_\(createCounter)"
 
         // TODO: random colors, allow the user to set these

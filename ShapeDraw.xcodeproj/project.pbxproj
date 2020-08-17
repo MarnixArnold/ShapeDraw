@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6077C1CB24EAFCCE00E088CD /* SDStarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6077C1CA24EAFCCE00E088CD /* SDStarShape.swift */; };
+		6077C1CD24EB009F00E088CD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6077C1CC24EB009F00E088CD /* README.md */; };
 		609A2CAA24EA952400633570 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A2CA924EA952400633570 /* AppDelegate.swift */; };
 		609A2CAC24EA952400633570 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A2CAB24EA952400633570 /* SceneDelegate.swift */; };
 		609A2CAE24EA952400633570 /* SDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A2CAD24EA952400633570 /* SDViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6077C1CA24EAFCCE00E088CD /* SDStarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDStarShape.swift; sourceTree = "<group>"; };
+		6077C1CC24EB009F00E088CD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		609A2CA624EA952400633570 /* ShapeDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShapeDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609A2CA924EA952400633570 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		609A2CAB24EA952400633570 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 		609A2C9D24EA952400633570 = {
 			isa = PBXGroup;
 			children = (
+				6077C1CC24EB009F00E088CD /* README.md */,
 				609A2CA824EA952400633570 /* ShapeDraw */,
 				609A2CBF24EA952500633570 /* ShapeDrawTests */,
 				609A2CA724EA952400633570 /* Products */,
@@ -137,9 +142,10 @@
 			isa = PBXGroup;
 			children = (
 				60F5786E24EA95AB00289B9C /* SDShape.swift */,
-				60F5786F24EA95AB00289B9C /* SDRectangleShape.swift */,
 				60F5787624EA9C8A00289B9C /* SDOvalShape.swift */,
+				60F5786F24EA95AB00289B9C /* SDRectangleShape.swift */,
 				60F5788924EAE96D00289B9C /* SDRoundedRectangleShape.swift */,
+				6077C1CA24EAFCCE00E088CD /* SDStarShape.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 			files = (
 				609A2CB624EA952500633570 /* LaunchScreen.storyboard in Resources */,
 				609A2CB324EA952500633570 /* Assets.xcassets in Resources */,
+				6077C1CD24EB009F00E088CD /* README.md in Resources */,
 				609A2CB124EA952400633570 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +275,7 @@
 				60F5787724EA9C8A00289B9C /* SDOvalShape.swift in Sources */,
 				60F5787924EAA7FF00289B9C /* SDShapeFactory.swift in Sources */,
 				60F5787B24EAD49B00289B9C /* CGPoint-extensions.swift in Sources */,
+				6077C1CB24EAFCCE00E088CD /* SDStarShape.swift in Sources */,
 				60F5788A24EAE96D00289B9C /* SDRoundedRectangleShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
