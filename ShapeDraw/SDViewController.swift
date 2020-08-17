@@ -57,9 +57,7 @@ class SDViewController: UIViewController {
             alertController.addAction(shapeAction)
         }
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction!) -> Void in
-        })
-        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
 
@@ -72,15 +70,16 @@ class SDViewController: UIViewController {
     
     // Using this weak ref to enable/disable the submit button based on the user input
     weak var submitNameAction: UIAlertAction?
+    weak var nameAlertController: UIAlertController?
 
     private func askForShapeName(newShape: SDShape) {
         // Ask the user to select a name, check against the current names to see if it is unique
-        let alertController = UIAlertController(title: "Awesome!", message: "Now choose a unique name", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Almost there!", message: "Now choose a unique name", preferredStyle: .alert)
         alertController.addTextField { (textField) in
             textField.placeholder = newShape.name
             textField.addTarget(self, action: #selector(self.nameTextChanged(_:)), for: .editingChanged)
         }
-        let action = UIAlertAction(title: "Submit", style: .default, handler: { [weak alertController] (_) in
+        let submitAction = UIAlertAction(title: "Submit", style: .default, handler: { [weak alertController] (_) in
             guard let textField = alertController?.textFields?[0],
                 let inputText = textField.text else { return }
             if !inputText.isEmpty {
@@ -88,8 +87,12 @@ class SDViewController: UIViewController {
             }
             self.addShape(shape: newShape)
         })
-        alertController.addAction(action)
-        submitNameAction = action
+        alertController.addAction(submitAction)
+        submitNameAction = submitAction
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+
+        nameAlertController = alertController
         
         if let popoverController = alertController.popoverPresentationController {
             popoverController.sourceView = self.view
@@ -104,7 +107,10 @@ class SDViewController: UIViewController {
             submitNameAction?.isEnabled = false
             return
         }
-        submitNameAction?.isEnabled = self.isUniqueName(name: inputText)
+        let isUnique = isUniqueName(name: inputText)
+        submitNameAction?.isEnabled = isUnique
+        nameAlertController?.title = (isUnique ? "Awesome!" : "Oh noes...")
+        nameAlertController?.message = (isUnique ? "This name is unique! Hit submit to continue." : "This name is alreay in use, please choose another.")
     }
     
     private func isUniqueName(name: String) -> Bool {
